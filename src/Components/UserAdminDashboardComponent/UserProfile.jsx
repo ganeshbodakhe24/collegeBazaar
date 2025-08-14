@@ -1,12 +1,36 @@
 import React, { useState, useRef } from "react"
+
+
 import SideBarSpace from "./UserSideBarSpace"
+import Nav from "../BasicComponents/Nav";
+import UserSideBar from "./UserSideBar";
+import Loading from "../Loading";
+import MsgPopUp from "../MsgPopUp";
+
 import userImg from "../../assets/Dashboard/userImg.jpg";
 import userBg from "../../assets/Dashboard/profile_bg.jpg";
+import UserProfileEdit from "./UserProfileEdit";
+import { useQuery } from "@tanstack/react-query";
+import API from "../API";
+
+const fetchDashboardData = async () => {
+    const response = await API.get("user/profile"); // protected endpoint
+    return response.data;
+};
+
 
 export default function UserProfile() {
 
     const [profileImage, setProfileImage] = useState(null);
     const fileInputRef = useRef();
+
+
+    // fetch data of user profile
+    const { data, isLoading, isError, error } = useQuery({
+        queryKey: ["userProfile"], // unique key
+        queryFn: fetchDashboardData,
+        retry: false, // optional: don’t retry if token is invalid
+    });
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -24,9 +48,17 @@ export default function UserProfile() {
         console.log("Form auto-submitted with image");
     };
 
+    
+    if(isLoading){ return <Loading></Loading>}
+    if (isError) return <MsgPopUp message={error.message || "Error"} msgType="error" />;
+
 
     return (
         <>
+            <Nav></Nav>
+            <UserSideBar userImg={data.profile_photo || "img"} userName={data.full_name || "img"}  ></UserSideBar>
+           
+
             <div className="absolute full w-full  -z-20">
                 <img className="w-full object-cover h-40 " src={userBg}></img>
             </div>
@@ -55,7 +87,7 @@ export default function UserProfile() {
 
                                 {/* Display Image */}
                                 <img
-                                    src={profileImage  || userImg}
+                                    src={profileImage || userImg}
                                     alt="Profile"
                                     className="w-full h-full object-cover cursor-pointer"
                                     onClick={() => fileInputRef.current.click()}
@@ -66,7 +98,7 @@ export default function UserProfile() {
                                     className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity"
                                     onClick={() => fileInputRef.current.click()}
                                 >
-                                 <i class=" text-white fas fa-edit"></i>  
+                                    <i class=" text-white fas fa-edit"></i>
                                 </div>
                             </div>
                         </form>
@@ -74,17 +106,17 @@ export default function UserProfile() {
                         {/* information */}
                         <div className="flex flex-col md:flex-row  ml-5 text-black-500">
                             <div className=" flex ml-1 flex-col">
-                                <p className="text-2xl text-black-800 font-semibold">Ganesh Macchindra Bodakhe</p>
-                                <p className=" mt-1"><i class="fas fa-graduation-cap"></i> BE<i class="ml-4 text-green-600 fa-solid fa-certificate"></i></p>
-                                <p className=" mt-1"><i class="fas fa-chair"></i> 21121018 <i class="ml-4 text-green-600 fa-solid fa-certificate"></i></p>
+                                <p className="text-2xl text-black-800 font-semibold">{data.full_name}</p>
+                                <p className=" mt-1"><i class="fas fa-graduation-cap"></i> {data.education_type}+""+{data.year}<i class="ml-4 text-green-600 fa-solid fa-certificate"></i></p>
+                                <p className=" mt-1"><i class="fas fa-chair"></i> {data.roll_no} <i class="ml-4 text-green-600 fa-solid fa-certificate"></i></p>
                                 <p className=" mt-1"><i class="fa-solid fa-building-columns"></i> Government college of engineering and research avasari</p>
                                 <div className="flex md:hidden mt-3 mb-3 border-b border-black-200">
                                 </div>
                             </div>
                             <div className="flex ml-1 flex-col">
-                                <span className="mt-2"><i class="fa-solid fa-location-crosshairs"></i><span> At post kharadgaon taluka shevgaon</span></span>
-                                <span className="mt-2"><i class="fa-solid fa-phone"></i><span> 9356297133</span></span>
-                                <span className="mt-2"><i class="fa-solid fa-envelope"></i><span> bodakheganesh24@gmail.com</span></span>
+                                <span className="mt-2"><i class="fa-solid fa-location-crosshairs"></i><span>{data.address}</span></span>
+                                <span className="mt-2"><i class="fa-solid fa-phone"></i><span>{data.email}</span></span>
+                                <span className="mt-2"><i class="fa-solid fa-envelope"></i><span> {data.email}</span></span>
                                 <div className="flex w-full justify-end">
                                     <button className=" mt-4 bg-amber-300 text-sm font-medium px-4 py-2 rounded hover:bg-red-500 transition">Edit Profile</button>
 
@@ -97,6 +129,7 @@ export default function UserProfile() {
                     </div>
                 </div>
             </div>
+            <UserProfileEdit></UserProfileEdit>
         </>
     )
 }

@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
+
+
 import SideBarSpace from "./UserSideBarSpace";
+import UserSideBar from "./UserSideBar";
+import Nav from "../BasicComponents/Nav";
+import Footer from "../BasicComponents/footer";
+import StaticProductUploader from "./StaticProductUploader";
 export default function UserProductAdd() {
 
     const [images, setImages] = useState([]);
@@ -36,8 +42,32 @@ export default function UserProductAdd() {
     alert("Form submitted successfully!");
   };
 
+//   const handleSubmit = async (e) => {
+//   e.preventDefault();
+
+//   const formData = new FormData(e.target);
+//   images.forEach((imgObj) => {
+//     formData.append("images", imgObj.file);
+//   });
+
+//   try {
+//     const res = await fetch("http://localhost:5000/user/addProduct", {
+//       method: "POST",
+//       body: formData,
+//     });
+//     const data = await res.json();
+//     console.log("Response:", data);
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+
+
     return (
         <>
+            <Nav></Nav>
+            <UserSideBar></UserSideBar>
+
             <div className="flex ">
                 <SideBarSpace></SideBarSpace>
                 {/* div for edit profile */}
@@ -59,7 +89,7 @@ export default function UserProductAdd() {
                                         minLength={5}
                                         type="text"
                                     
-                                        name="productTitle"
+                                        name="product_name"
                                     />
                                 </div>
 
@@ -122,7 +152,7 @@ export default function UserProductAdd() {
                                         required
                                         type="number"
                                         min={1}
-                                        name="price"
+                                        name="price_per_piece"
                                     />
                                 </div>
 
@@ -148,7 +178,7 @@ export default function UserProductAdd() {
                                         className="mt-1 w-full p-3 outline-none border rounded border-black-400 focus:ring-2 focus:ring-black-400 "
                                         required
                                         type="tel"
-                                        name="phonenumber"
+                                        name="phone_no"
                                         pattern="[0-9]{10}"
                                         inputMode="numeric"
                                         placeholder="Enter 10-digit number"
@@ -164,7 +194,7 @@ export default function UserProductAdd() {
                                         className="mt-1 w-full p-3 outline-none border rounded border-black-400 focus:ring-2 focus:ring-black-400 "
                                         required
                                         id="enquiryTime"
-                                        name="enquiryTime"
+                                        name="enquiry"
                                         defaultValue=""
                                     >
                                         <option value="" disabled>
@@ -217,6 +247,10 @@ export default function UserProductAdd() {
                 </div>
 
             </div>
+                    <StaticProductUploader></StaticProductUploader>
+
+            {/* footer */}
+            <Footer></Footer>
         </>
     )
 

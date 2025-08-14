@@ -15,12 +15,12 @@ function App() {
   return (
     <>
     
-      <Nav></Nav>
+      {/* <Nav></Nav> */}
       {/* <Hero></Hero> */}
       {/* <SignIn></SignIn> */}
       {/* <SignUp></SignUp> */}
-      <UserDashboard></UserDashboard>
-        <AdminDashboard></AdminDashboard>
+      {/* <UserDashboard></UserDashboard> */}
+        {/* <AdminDashboard></AdminDashboard> */}
       {/* <Footer></Footer> */}
       
      

@@ -3,14 +3,19 @@ import logo from "../../assets/logo.png";
 import facebook_img from "../../assets/facebook.png";
 import instagram_img from "../../assets/instagram.png";
 import twitter_img from "../../assets/twitter.png";
-export default function Footer() {
+import {Link, NavLink,Outlet } from "react-router";
+
+export default function Footer({leftSpace}) {
+  console.log(leftSpace)
   return (
     <>
-      <div className=" shadow-black   footer-bg p-5 flex justify-evenly flex-col sm:flex-row items-center sm:items-start">
+      <div className={`ml-${leftSpace}  shadow-black   footer-bg p-5 flex justify-evenly flex-col sm:flex-row items-center sm:items-start`} >
 
         {/* img and sescription */}
         <div className=" w-full  sm:w-1/4  justify-center ">
+        <Link to="/">
           <img className="w-1/2  sm:w-1/1" src={logo}></img>
+          </Link>
           <br></br>
           <p>
             College Bazaar is a student-run platform to buy, sell, and exchange
@@ -36,21 +41,12 @@ export default function Footer() {
         <div className="my-4 sm:my-0 w-full  sm:w-1/4 flex flex-col  sm:items-center">
           <ul className="p-0 navul m-0  [&>li>a]:w-full ">
             <li className="font-extrabold sm:border-b-3 mt-0">Links</li>
-            <li>
-              <a href="">Home</a>
-            </li>
-            <li>
-              <a href="">AboutUs</a>
-            </li>
-            <li>
-              <a href="">Store</a>
-            </li>
-            <li>
-              <a href="">Blogs</a>
-            </li>
-            <li>
-              <a href="">ContactUs</a>
-            </li>
+             <li ><NavLink to="/">Home</NavLink></li>
+            <li ><NavLink to="/aboutUs">AboutUs</NavLink></li>
+            <li ><NavLink to="/store">Store</NavLink></li>
+            <li ><NavLink to="/blogs">Blogs</NavLink></li>
+            <li ><NavLink to="/contactUs">ContactUs</NavLink></li>
+
           </ul>
         </div>
         {/* location */}
@@ -79,8 +75,10 @@ export default function Footer() {
       </div>
       
       {/* hr */}
-      <div className="border-t-[0.1px] bg-black-200  w-full flex justify-center footer-bg">
+      <div className="border-t-1 border-california-400 w-full flex justify-center footer-bg">
       <p>&copy; 2025 all  rights reserved by Developer</p>
+
+      <Outlet></Outlet>
 </div>
      
     </>

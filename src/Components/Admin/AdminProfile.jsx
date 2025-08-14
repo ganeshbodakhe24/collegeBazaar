@@ -33,9 +33,9 @@ export default function AdminProfile() {
             <div className="flex mt-8 container justify-center  m-auto w-full ">
                 {/* profile contain */}
                 <SideBarSpace></SideBarSpace>
-                <div className="flex w-[90%] justify-center  items-center  ">
+                <div className="flex flex-col rounded-2xl justify-center  items-center bg-amber-50 hover:bg-amber-100  ">
  
-                    <div className=" bg-amber-100 rounded-2xl flex flex-col justify-center items-center  sm:flex-row p-4">
+                    <div className="  rounded-2xl flex flex-col justify-center items-center  sm:flex-row p-4">
                         {/* photo */}
                         <form onSubmit={handleSubmit}>
                             <div className="relative size-30 flex-shrink-0 rounded-full overflow-hidden border border-black shadow-2xl group">
@@ -85,17 +85,25 @@ export default function AdminProfile() {
                                 <span className="mt-2"><i class="fa-solid fa-location-crosshairs"></i><span> At post kharadgaon taluka shevgaon</span></span>
                                 <span className="mt-2"><i class="fa-solid fa-phone"></i><span> 9356297133</span></span>
                                 <span className="mt-2"><i class="fa-solid fa-envelope"></i><span> bodakheganesh24@gmail.com</span></span>
-                                <div className="flex w-full justify-end">
-                                    <button className=" mt-4 bg-amber-300 text-sm font-medium px-4 py-2 rounded hover:bg-red-500 transition">Edit Profile</button>
-
-                                </div>
+                               
 
                             </div>
-                            {/* buttons */}
+                           
 
                         </div>
+                       
                     </div>
+                       {/* buttons  must be desabled if required*/}
+                             <div className="flex w-full  justify-end">
+                                    <button className=" mt-4 mb-4 mx-2 bg-amber-300 text-sm font-medium px-4 py-2 rounded hover:bg-red-500 transition">Edit Profile</button>
+                                    <button className=" mt-4 mb-4 mx-2 bg-amber-300 text-sm font-medium px-4 py-2 rounded hover:bg-red-500 transition">Delete Profile</button>
+                                    <button className=" mt-4 mb-4 mx-2 bg-amber-300 text-sm font-medium px-4 py-2 rounded hover:bg-red-500 transition">Disable Account</button>
+
+
+                                </div>
+                   
                 </div>
+                
             </div>
         </>
     )

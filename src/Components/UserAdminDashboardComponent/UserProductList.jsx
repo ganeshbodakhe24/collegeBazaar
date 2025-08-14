@@ -2,6 +2,9 @@ import item from "../../assets/Dashboard/item.jpg"
 export default function UserProductList() {
     return (
         <>
+            <div className="m-auto my-4 font-bold text-2xl text-trinidad-500">
+                Products List <i class="fa-regular fa-truck"></i>
+            </div>
             {/* div of item */}
             <div className="flex my-2 flex-col sm:flex-row container m-auto p-4 items-center w-full bg-amber-100 hover:bg-amber-200 rounded-lg shadow-md group text-black-600">
                 <div className="w-30 max-h-50 mr-4 rounded-xl overflow-hidden transform  transition duration-150  group-hover:scale-105 ">

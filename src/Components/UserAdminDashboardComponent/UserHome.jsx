@@ -4,6 +4,7 @@ import SideBarSpace from "./UserSideBarSpace"
 export default function UserHome() {
     return (
         <>
+        
             <div className="flex flex-row">
                 {/* to give left margin for left slider */}
                 <SideBarSpace></SideBarSpace>
@@ -20,7 +21,7 @@ export default function UserHome() {
                             <p className=" group-hover:text-amber-700 w-full flex justify-center text-2xl font-bold">4324</p>
                         </div>
                          <div className=" h-25 w-35 md:h-30 md:w-50 group m-4  bg-amber-100 hover:bg-amber-200 hover:shadow-xl text-black-400 hover:text-black-600 rounded-xl flex flex-col p-4 ">
-                            <p className="flex justify-between items-center">Saled Product <i class="fa-solid fa-receipt text-lg"></i> </p>
+                            <p className="flex justify-between items-center">sold Product <i class="fa-solid fa-basket-shopping text-lg"></i> </p>
                             <p className=" group-hover:text-amber-700 w-full flex justify-center text-2xl font-bold">4324</p>
                         </div>
                          <div className=" h-25 w-35 md:h-30 md:w-50 group m-4  bg-amber-100 hover:bg-amber-200 hover:shadow-xl text-black-400 hover:text-black-600 rounded-xl flex flex-col p-4 ">
@@ -36,9 +37,6 @@ export default function UserHome() {
                     </div>
                     <br></br>
                     {/* products status*/}
-                    <div className="m-auto my-4 font-bold text-2xl text-trinidad-500">
-                        Items List <i class="fa-regular fa-truck"></i>
-                    </div>
                     <UserProductList c></UserProductList>
 
                 </div>

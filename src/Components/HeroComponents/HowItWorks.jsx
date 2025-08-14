@@ -25,7 +25,7 @@ function HowItWorks() {
         <div className=" container flex flex-col md:flex-row mx-auto px-4  flex ">
           <div className=" relative flex flex-col w-1/4">
             <div className=" flex relative justify-end p-2">
-              <div className="absolute left-full w-[200px] md:w-full p-4 -top-20 bg-gradient-to-r from-trinidad-300 via-trinidad-100 to-white  border-2 border-black-400 border-b-4 border-r-4 rounded-e-xl rounded-t-xl shadow-xl hover:shadow-2xl transition-all duration-300">
+              <div className="absolute left-full w-[200px] md:w-full p-4 -top-20 bg-gradient-to-r  to-white  border-2 border-black-400 border-b-4 border-r-4 rounded-e-xl rounded-t-xl shadow-xl hover:shadow-2xl transition-all duration-300">
   <h1 className="text-xl md:text-2xl font-semibold text-yellow-900">How it's Works ?</h1>
 </div>
               <img
