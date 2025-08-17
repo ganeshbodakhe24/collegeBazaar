@@ -1,7 +1,9 @@
 import React from "react"
 import UserProductList from "./UserProductList"
 import SideBarSpace from "./UserSideBarSpace"
-export default function UserHome() {
+export default function UserHome({userName}) {
+
+    
     return (
         <>
         
@@ -12,7 +14,7 @@ export default function UserHome() {
                 <div className="flex flex-col my-4 mx-4 w-full">
                     <div className="border  border-amber-300 flex p-3 rounded">
                         <span className=" font-bold text-2xl">Welcome </span>
-                        <span className="text-2xl ml-2"> Ganesh Bodakhe </span>
+                        <span className="text-2xl ml-2"> {userName} </span>
                     </div>
                     {/* second section */}
                     <div className="mt-4 flex flex-wrap w-full justify-around ">
@@ -37,7 +39,7 @@ export default function UserHome() {
                     </div>
                     <br></br>
                     {/* products status*/}
-                    <UserProductList c></UserProductList>
+                    <UserProductList ></UserProductList>
 
                 </div>
 

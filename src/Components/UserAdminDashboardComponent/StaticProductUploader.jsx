@@ -86,7 +86,7 @@ const handleSubmit = async (e) => {
     const res = await fetch("http://localhost:5000/user/updateProfilePhoto", {
       method: "POST",
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIwLCJlbWFpbCI6ImJvZGFraGVnYW5lc2gzNEBnbWFpbC5jb20iLCJpYXQiOjE3NTQ5OTIzODgsImV4cCI6MTc1NTAwMzE4OH0.8J7EjVeh60ta5iZCGk0C_j0yBz5zE-2ePeXYRAQ_Y7k`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJlbWFpbCI6ImJvZGFraGVnYW5lc2gyNEBnbWFpbC5jb20iLCJpYXQiOjE3NTUxOTAwOTcsImV4cCI6MTc1NTIwMDg5N30.t_M23ciVF6dGpvTm19xjVgbKA-paVax5D3r9r0GxTiM`,
       },
       body: formData,
     });

@@ -27,7 +27,7 @@ export default function UserDashboard(){
         <> 
             <Nav></Nav>
             <UserSideBar userImg={data.profile_photo || "img"} userName={data.full_name || "img"}  ></UserSideBar>
-            <UserHome></UserHome>
+            <UserHome userName={data.full_name || "user full name"} ></UserHome>
             <Footer></Footer>
         </>
     )
